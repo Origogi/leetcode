@@ -9,9 +9,7 @@ var isUgly = function(n) {
 function check(n) {
     const prime = [ 2, 3, 5];
     
-    if (n === 1 || prime.includes(n)) {
-        return true;
-    } else if (n ===0 ) {
+    if (n ===0 ) {
         return false;
     }
     
@@ -22,6 +20,6 @@ function check(n) {
         }
     }
     
-    return false;
+    return n === 1;
     
 }
