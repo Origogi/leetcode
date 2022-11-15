@@ -4,7 +4,7 @@
  * @return {number}
  */
 var threeSumClosest = function(nums, target) {
-  nums.sort((a, b) => (a - b));
+    nums.sort((a, b) => (a - b));
     
     let result =  nums[0] + nums[1] + nums[2];
     
