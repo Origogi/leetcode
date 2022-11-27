@@ -3,15 +3,8 @@
  * @return {boolean}
  */
 var repeatedSubstringPattern = function(s) {
-
-    
     for (var i = 1;i<s.length;i++) {
-        if (s.length % i !== 0) {
-            continue;
-        }
-        
         const splited = chunkString(s, i);
-        console.log(splited);
         
         var finded = true;
         for (var j = 1; j<splited.length;j++) {
