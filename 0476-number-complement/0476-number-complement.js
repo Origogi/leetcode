@@ -3,15 +3,7 @@
  * @return {number}
  */
 var findComplement = function(num) {
-    let target = 1;
     
-    while(target <= num) {
-        target = target * 2;
-    }
+    return num ^ parseInt('1'.repeat(Number(num).toString(2).length), 2);
     
-    target--;
-    
-    const ret = target - num;
-    
-    return ret;
 };
