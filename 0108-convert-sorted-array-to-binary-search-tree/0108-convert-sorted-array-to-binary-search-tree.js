@@ -23,9 +23,7 @@ function makeTree(nums) {
     const mid = parseInt(nums.length / 2);
     
     const root = new TreeNode(nums[mid]);
-    
-    console.log(mid);
-    root.left = makeTree(nums.slice(0, mid));
+        root.left = makeTree(nums.slice(0, mid));
     root.right = makeTree(nums.slice(mid + 1, nums.length));
     
     return root;
