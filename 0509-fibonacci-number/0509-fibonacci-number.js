@@ -11,14 +11,12 @@ var fib = function(n) {
     
         
     function fibonacci(n) {
-        console.log(n.toString());
-        if (memory[n.toString()] !== undefined) {
-            return memory[n.toString()];
+        if (memory[n] !== undefined) {
+            return memory[n];
         }
         
-        memory[n.toString()] = fibonacci(n -1) + fibonacci(n -2);
-        return memory[n.toString()];
-        
+        memory[n] = fibonacci(n -1) + fibonacci(n -2);
+        return memory[n];
     }
     
     return fibonacci(n);
