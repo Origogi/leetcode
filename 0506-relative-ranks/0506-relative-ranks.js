@@ -9,7 +9,6 @@ var findRelativeRanks = function(score) {
       return acc;
     }
     const map = sortedScore.reduce(reducer, {});
-    console.log(map);
 
     return score.map((e)  => {
         const rank = map[e];
