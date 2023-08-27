@@ -3,33 +3,29 @@
  * @return {number[][]}
  */
 var permuteUnique = function(nums) {
-    const visited = [];
     const ret = [];
     
     function find(currentPath, remain) {
-        if (visited.includes(currentPath)) {
+        if (remain.length === 1) {
+            ret.push([...currentPath, remain]);
             return;
         }
         
-        visited.push(currentPath);
-
-        if (remain.length === 0) {
-            ret.push(currentPath.split(' ').filter((c) => c !== '').map((c) => parseInt(c)));
-            return;
-        }
-        
-        
+        remain.sort((a,b) => a - b);
+           
         for (let i = 0;i<remain.length;i++) {
-            const next = remain[i];
-            const nextRemain = [...remain];
-            nextRemain.splice(i,1);
-
-            find(`${currentPath} ${next}`, nextRemain);
+            if (remain[i] === remain[i -1]) {
+                continue;
+            }
+            const nextPath = [...currentPath, remain[i]];
+            const nextRemain = remain.filter((e, index) => index !==i);
+            
+            find(nextPath, nextRemain);
         }
     }
     
 
     
-    find('', nums);
+    find([], nums);
     return ret;
 };
