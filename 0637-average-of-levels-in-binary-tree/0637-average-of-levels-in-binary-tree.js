@@ -26,19 +26,17 @@ var averageOfLevels = function(root) {
         dfs(root.right, level + 1);
     }
     
+    function avg(arr) {
+        return arr.reduce((a,b) => a + b, 0) / arr.length;
+    }
+    
     dfs(root, 1);
     
     const ret = Object.entries(memory)
         .sort((a,b) => a[0] - b[0])
         .map((a) => a[1])
-        .map((a) => {
-            const length = a.length;
-            const sum = a.reduce((a,b) => a+ b, 0);
-            return sum / length;
-        });
-    
-    console.log(ret)
-    
+        .map((a) => avg(a));
+        
     return ret;
     
 };
