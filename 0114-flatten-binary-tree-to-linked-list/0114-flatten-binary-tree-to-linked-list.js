@@ -12,34 +12,18 @@
  */
 var flatten = function(root) {
     
-    if (!root) {
-        return;
-    }
-    
-    const path = [];
-    
-        
-    function dfs(root) {
-        if (!root) {
-            return;
+    let prev = null;
+    function dfs(node) {
+        if (!node) {
+            return null;
         }
-        path.push(root.val);
-
-        dfs(root.left);
-        dfs(root.right);
+        dfs(node.right);
+        dfs(node.left);
+        node.right = prev;
+        node.left = null;
+        prev = node;
     }
     
     dfs(root);
-    
-    const head = root;
-    head.left = null;
-    head.right = null;
-    let tail = head;
-    
-    for (let i = 1;i<path.length;i++) {
-        let newTail = new TreeNode(path[i]);
-        tail.right = newTail;
-        tail = newTail;
-    }
 
 };
