@@ -11,8 +11,6 @@
  */
 var swapPairs = function(head) {
   
-    
-    
     let targetNode= head;
     let preTargetNode;
     let ret;
