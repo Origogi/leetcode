@@ -16,11 +16,8 @@ var merge = function(intervals) {
             
             const merged = [compare[0], Math.max(compare[1], item[1])];
             
-            if (acc.length > 0) {
-                return [...acc,merged];
-            } else {
-                return [merged];
-            }
+            acc.push(merged);
+            return acc;
             
         } else {
             return [...acc, compare,item];
