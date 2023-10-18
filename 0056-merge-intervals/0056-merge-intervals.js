@@ -6,7 +6,6 @@ var merge = function(intervals) {
     intervals.sort((a, b) => a[0] - b[0]);
         
     const ret = intervals.reduce((acc, item) => {
-        console.log(acc);
         if (acc.length === 0) {
             return [item];
         }
