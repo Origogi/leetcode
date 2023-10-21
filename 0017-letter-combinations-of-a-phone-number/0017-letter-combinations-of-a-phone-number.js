@@ -15,12 +15,8 @@ var letterCombinations = function(digits) {
     }
     
     
-    return Array.from(digits).reduce((acc, digit) => {
-        if (acc.length === 0) {
-            return map[digit];
-        }
-        return combination(acc, map[digit]);
-    }, []);    
+    return Array.from(digits)
+        .reduce((acc, digit) => combination(acc, map[digit]), []);    
 };
 
 function combination(strArrayA, strArrayB) {
