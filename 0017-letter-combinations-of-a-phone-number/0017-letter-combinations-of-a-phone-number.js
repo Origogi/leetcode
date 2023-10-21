@@ -14,15 +14,13 @@ var letterCombinations = function(digits) {
         9 : ['w','x','y','z']
     }
     
-    let ret = [];
     
-    for (let i = 0;i<digits.length;i++) {
-        const digit = digits.charAt(i);
-        ret = combination(ret, map[digit]);
-    }
-    
-    return ret;
-    
+    return Array.from(digits).reduce((acc, digit) => {
+        if (acc.length === 0) {
+            return map[digit];
+        }
+        return combination(acc, map[digit]);
+    }, []);    
 };
 
 function combination(strArrayA, strArrayB) {
