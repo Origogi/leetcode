@@ -4,7 +4,7 @@
  */
 var generateMatrix = function(n) {
     
-    const ret = Array.from(Array(n), () => new Array(n));
+    const ret = Array.from(new Array(n), () => new Array(n));
     
     
     const dirX = [0,1,0,-1];
