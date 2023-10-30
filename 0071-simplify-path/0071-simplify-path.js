@@ -3,9 +3,8 @@
  * @return {string}
  */
 var simplifyPath = function(path) {
-    const isNotEmpty = (s) => s.length > 0;
-    const tokens = path.split("/").filter(isNotEmpty);
-    console.log(tokens);
+    const filterCondition = (s) => s.length > 0 || s === '.';
+    const tokens = path.split("/").filter(filterCondition);
     
     return '/' + tokens.reduce((acc, token) => {
          if (token === '..') {
