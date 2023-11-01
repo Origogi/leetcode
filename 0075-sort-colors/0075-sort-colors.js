@@ -11,9 +11,7 @@ var sortColors = function(nums) {
         '1' :0,
         '2' : 0
     });
-    
-    console.log(countMap);
-    
+        
     let i = 0;
     
     const keys = [0, 1, 2];
