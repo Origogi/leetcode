@@ -18,7 +18,7 @@ var sortColors = function(nums) {
     
     const keys = [0, 1, 2];
     
-    while (i < nums.length) {
+    for (let i = 0;i<nums.length;i++) {
         for (const k of keys) {
             const countOfKey = countMap[k];
             if (countOfKey) {
@@ -27,7 +27,6 @@ var sortColors = function(nums) {
                 break;
             }
         }
-        i++;
     }
     
     
