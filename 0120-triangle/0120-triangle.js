@@ -3,15 +3,14 @@
  * @return {number}
  */
 var minimumTotal = function(triangle) {
-    return triangle.reduce((acc, row) => {
-        const next = Array.from({length : row.length}, () => Number.MAX_SAFE_INTEGER);
+    const getArrSafe = (i, arr) => arr[i] ?? Number.MAX_SAFE_INTEGER;
+    const getMin = (i, arr) => Math.min(getArrSafe(i -1 , arr), getArrSafe(i, arr));
+    
+    return triangle.reduce((acc, row) => 
+         Array
+            .from({length : row.length}, () => Number.MAX_SAFE_INTEGER)
+            .map((item, i) => row[i] + getMin(i, acc))
         
-        for (let i = 0;i<next.length;i++) {
-            const left = acc[i-1] ?? Number.MAX_SAFE_INTEGER;
-            const right = acc[i] ?? Number.MAX_SAFE_INTEGER;
-            next[i] = row[i] + Math.min(left,right);
-        }
-        return next;
-    }).reduce((a,b) => a < b ? a : b);
+    ).reduce((a,b) => Math.min(a, b));
     
 };
