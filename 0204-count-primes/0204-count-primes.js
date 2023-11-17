@@ -18,7 +18,6 @@ var countPrimes = function(n) {
             }
         }
     }
-    console.log(isPrimeNum);
     
     return isPrimeNum.slice(2).filter(a => a).length;
     
