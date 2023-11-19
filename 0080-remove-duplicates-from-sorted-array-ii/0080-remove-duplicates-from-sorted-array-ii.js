@@ -4,16 +4,9 @@
  */
 var removeDuplicates = function(nums) {
     
-    let duplicatedIndex;
-    for (let i = 1;i<nums.length;i++) {
-        if (nums[i -1] === nums[i]) {
-            if (duplicatedIndex) {
-                nums[duplicatedIndex++] = '_'
-            } else {
-                duplicatedIndex = i;
-            }
-        } else {
-            duplicatedIndex = undefined;
+    for (let i = -2;i<nums.length;i++) {
+        if (nums[i -2] === nums[i -1] && nums[i-1] === nums[i]) {
+            nums[i - 2] = '_';
         }
     }
     
