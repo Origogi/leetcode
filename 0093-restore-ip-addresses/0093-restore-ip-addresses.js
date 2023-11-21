@@ -7,7 +7,10 @@ var restoreIpAddresses = function(s) {
     const ret = [];
     
     const splitLength  = (str, length) => [str.substring(0, length), str.slice(length)];
-    const isValidIp = (str) => parseInt(str) <= 255;
+    const isValidIp = (str) => {
+        const seg = parseInt(str);
+        return seg <= 255 && (seg !== 0 || (str === '0'));
+    };
     
     function getIp(prefix, remain) {
         if (prefix.length === 4 && remain === '') {
