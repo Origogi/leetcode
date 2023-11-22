@@ -13,8 +13,8 @@ var computeArea = function(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2) {
     const getRectArea = (rx, ry) => (rx[1] - rx[0]) * (ry[1] - ry[0]);
     const overlapRange = (ra, rb) => {
         const ranges = [ra, rb];
-        ranges.sort((a,b) => {
-            return a[0] - b[0];
+        ranges.sort(([a], [b]) => {
+            return a - b;
         });
                 
         if (ranges[0][0] <= ranges[1][0] && ranges[1][0] <= ranges[0][1]) {
