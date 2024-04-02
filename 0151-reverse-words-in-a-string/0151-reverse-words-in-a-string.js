@@ -3,8 +3,10 @@
  * @return {string}
  */
 var reverseWords = function(s) {
-    const tokens = s.split(' ').filter((w) => w !== '')
-    console.log(tokens)
-    return tokens.reverse().join(' ')
+    return s
+        .split(' ')
+        .filter((w) => w !== '')
+        .reduce((acc , w, i) => i === 0 ? w :`${w} ${acc}`, '')
+    
    
 };
