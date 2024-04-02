@@ -8,7 +8,7 @@ var maxArea = function(height) {
      
     let left = 0
     let right = height.length -1;
-    let max = getArea(height, left, right)
+    let max = 0
     
     while (left < right) {
         max = Math.max(max, getArea(height, left, right))
