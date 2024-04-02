@@ -4,28 +4,23 @@
  */
 var maxArea = function(height) {
     
-    let start = 0;
-    let end = height.length - 1;
+    const getArea = (hs, l, r) => Math.min(hs[l], hs[r]) * (r - l)
+     
+    let left = 0
+    let right = height.length -1;
+    let max = getArea(height, left, right)
     
-    let ret = 0;
-    
-    
-    while(start < end) {
+    while (left < right) {
+        max = Math.max(max, getArea(height, left, right))
         
-        ret = Math.max(ret, getWater(height, start, end));
-        
-        if (height[start] > height[end]) {
-            end--;
+        if (height[left] > height[right]) {
+            right--
         } else {
-            start++;
+            left++
         }
-        
     }
     
-    return ret;
     
+    
+    return max
 };
-
-function getWater(height, start, end) {
-    return Math.min(height[start], height[end]) * (end - start);
-}
